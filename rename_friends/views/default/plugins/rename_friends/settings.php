@@ -16,8 +16,8 @@ else{
 	
 	for($i=0; $i<count($translations); $i++){
 		
-		$singular = elgg_get_plugin_setting($translations[$i].'singular');
-		$plural = elgg_get_plugin_setting($translations[$i].'plural');
+		$singular = elgg_get_plugin_setting($translations[$i].'singular', 'rename_friends');
+		$plural = elgg_get_plugin_setting($translations[$i].'plural', 'rename_friends');
 		
 		//set defaults if nothing has been set yet
 		if(empty($singular)){ $singular = elgg_echo('friend'); }
