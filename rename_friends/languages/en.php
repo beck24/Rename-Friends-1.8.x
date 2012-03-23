@@ -35,23 +35,22 @@ $uplural = $first_letter . $rest_of_word;
 
 
 
-// get variables for groups if Rename Groups is enabled
+// get variables for groups 
+$singular = '';
+$plural = '';
 if(elgg_is_active_plugin('rename_groups')){
-  $languagecode = get_current_language();
-  $singularvar = $languagecode . 'singular';
-  $pluralvar = $languagecode . 'plural';
-
   $singular = elgg_get_plugin_setting($singularvar, 'rename_groups');
   $plural = elgg_get_plugin_setting($pluralvar, 'rename_groups');
+}
 
   // set defaults if setting can't be found
   if(empty($singular)){ $singular = elgg_echo('groups:group'); }
   if(empty($plural)){ $plural = elgg_echo('groups'); }
 
   // get first letter of each, and register variables for starting with uppercase and lowercase first letter
-  // $usingle = uppercase singluar eg. $usingle
+  // $usingle = uppercase singluar eg. Group
   // $lsingle = lowercase singluar eg. group
-  // $uplural = uppercase plural eg. $usingles
+  // $uplural = uppercase plural eg. Groups
   // $lplural = lowercase plural eg. groups
 
   $glsingle = strtolower($singular);
@@ -68,8 +67,6 @@ if(elgg_is_active_plugin('rename_groups')){
   $rest_of_word = substr($plural, 1);
 
   $guplural = $first_letter . $rest_of_word;
-}
- 
  
 $english = array(
 	//
@@ -216,7 +213,7 @@ You will automatically add them as a {$lsingle} when you create your account.",
 'groups:invite' => "Invite {$lplural}",
 'groups:invite:title' => "Invite {$lplural} to this {$glsingle}",
 'groups:inviteto' => "Invite {$lplural} to '%s'",
-'groups:nofriends' => "You have no {$lplural} left who have not been invited to this $glsingle.",
+'groups:nofriends' => "You have no {$lplural} left who have not been invited to this {$glsingle}.",
 'groups:nofriendsatall' => "You have no {$lplural} to invite!",
 
 
@@ -228,18 +225,6 @@ You will automatically add them as a {$lsingle} when you create your account.",
 'river_addon:option:default' => "All, Mine, {$uplural}",
 'river_addon:option:friend'	=> "{$uplural}, Mine, All",
 'river_addon:option:mine' => "Mine, {$uplural}, All",
-
-
-
-
-
-
-
-
-
-
-
-
 
 );
 
