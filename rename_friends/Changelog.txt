@@ -1,6 +1,6 @@
 Changelog
 
-03/23/12
+03/23/12 - 1.1
 Fixed issue where a deactivated rename_groups could still influence group names for strings that
 contain both "friends" and "groups"
 
