@@ -23,6 +23,3 @@ function rename_friends_init()
   
 // Initialise this plugin
 elgg_register_event_handler('init','system','rename_friends_init');
-
-
-?>
